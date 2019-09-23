@@ -21,10 +21,10 @@ t_file	*ft_open_dir(char *dir, int flags)
 	}
 	if (files)
 		closedir(files);
-	begin = ft_sort_lst_alpha(begin);
-	if (flags & LS_T)
+	(begin) ? begin = ft_sort_lst_alpha(begin) : 0;
+	if (flags & LS_T && begin)
 		begin = ft_sort_lst_t(begin);
-	if (flags & LS_R)
+	if (flags & LS_R && begin)
 		begin = ft_sort_lst_r(begin);
 	return (begin);
 }
